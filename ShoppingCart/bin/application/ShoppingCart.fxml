@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="583.0" prefWidth="697.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.ShoppingCart">
+   <children>
+      <GridPane layoutX="25.0" layoutY="21.0" prefHeight="120.0" prefWidth="248.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ComboBox fx:id="itemMenu" prefWidth="150.0" promptText="Select item" />
+            <Label text="Unit" GridPane.rowIndex="1" />
+            <Label text="Price/Unit" GridPane.rowIndex="2" />
+            <Label fx:id="unit" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="pricePerUnit" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="294.0" layoutY="21.0" prefHeight="128.0" prefWidth="389.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="111.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="315.0" minWidth="10.0" prefWidth="278.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Select units" />
+            <Label text="Purchased units" GridPane.rowIndex="1" />
+            <Slider fx:id="unitSlider" blockIncrement="1.0" majorTickUnit="2.0" max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1" />
+            <Label fx:id="purchasedUnit" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <Button fx:id="addBtn" layoutX="25.0" layoutY="149.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="25.0" prefWidth="138.0" text="Add to Cart" />
+      <Button layoutX="169.0" layoutY="149.0" mnemonicParsing="false" onAction="#removeFromCart" prefHeight="25.0" prefWidth="138.0" text="Remove from Cart" />
+      <TableView fx:id="tableCart" layoutX="25.0" layoutY="226.0" prefHeight="324.0" prefWidth="327.0">
+         <columns>
+            <TableColumn fx:id="tableName" prefWidth="75.0" text="Item Name" />
+            <TableColumn fx:id="tableUnits" prefWidth="75.0" text="Purchase units" />
+            <TableColumn fx:id="tablePrice" prefWidth="75.0" text="Purchase Price" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TextArea fx:id="ItemOverView" editable="false" layoutX="374.0" layoutY="155.0" prefHeight="353.0" prefWidth="309.0" wrapText="true">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></TextArea>
+      <Label layoutX="25.0" layoutY="561.0" text="Total Amount:" />
+      <Label fx:id="totalAmount" layoutX="113.0" layoutY="561.0" text="Label" />
+      <Button layoutX="24.0" layoutY="184.0" mnemonicParsing="false" onAction="#saveCart" prefHeight="25.0" prefWidth="138.0" text="Save Cart" />
+      <Button layoutX="169.0" layoutY="184.0" mnemonicParsing="false" onAction="#loadCart" prefHeight="25.0" prefWidth="138.0" text="Load Cart" />
+      <Button layoutX="543.0" layoutY="538.0" mnemonicParsing="false" onAction="#cashOut" prefHeight="26.0" prefWidth="115.0" text="Cash Out" />
+   </children>
+</AnchorPane>
